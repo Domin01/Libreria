@@ -2,12 +2,22 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ejemplo 9</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-	<h1>Alumno: {{alum.nombre}}</h1>
-	<h2>Curso: {{alum.curso}}</h2>
-	<h2>Nota: {{alum.nota}}</h2>
-	<a href="/">Volver</a>
+	<h1>{{ title }}</h1>
+	<img src="{{ contenido.thumbnailUrl }}"><br>
+
+	{% if contenido.status == "MEAP" %}
+		<p>ESTE LIBRO NO SE HA PUBLICADO</p>
+	{% endif %}
+
+
+	<h2>Numero de paginas: {{ contenido.pageCount }}</h2>
+	<h2>Descripción</h2>
+	<a>{{ contenido.shortDescription }}</a><br>
+
+	<br>
+	<a href="/">Inicio</a>	
 </body>
 </html>
