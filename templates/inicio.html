@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+</head>
+<body>
+	<h1>Alejandro Dominguez Alcocer</h1>
+		<ul>
+		{% for libro in lista_libros -%}
+			<li><a href="/libros/{{libro.isbn}}">{{libro.title}}</a></li>
+		{% endfor -%}
+		</ul>
+</body>
+</html>
