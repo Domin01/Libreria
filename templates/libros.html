@@ -30,8 +30,8 @@
 
 	<h2>CATEGORIAS</h2>
 	<ul>
-	{% for categorias in contenido.categories -%}
-	<li><a>{{ categorias }}</a></li>
+	{% for categoria in contenido.categories -%}
+		<li><a href="/categorias/{{categoria}}">{{ categoria }}</a></li>
 	{% endfor -%}
 	</ul>
 	

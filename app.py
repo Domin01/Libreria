@@ -16,12 +16,20 @@ def libros(isbn):
             return render_template("libros.html",contenido=libro)
     abort(404)
 
+@app.route('/categorias/<tipo>')
+def categoria(tipo):
+    return render_template("categorias.html",categoria=tipo,lista_libros=datos)
+
+
+
 
 app.run("0.0.0.0",8000,debug=True)
 
 
-#Página detalle del libro. La ruta será /libro/<isbn>, que mostrará un título con el nombre del libro, una imagen del libro 
-#(campo thumbnailUrl) y la siguiente información del libro: Número de páginas, descripción, autores y categorías.
-#Si el ISBN no existe se devolverá un error 404.
-#Si el valor del campo status es igual a MEAP mostraremos un mensaje que diga "ESTE LIBRO NO SE HA PUBLICADO" 
-#(usar un if dentro de la plantilla).
+#Posible mejora (no es obligatorio, pero estaría muy bien que lo hagáis)
+
+#Cuando se muestra el detalle de un libro y se muestran las categorías, estás son un enlace a la ruta /categoria/<categoria>. 
+#Por ejemplo, si el primer libro tiene una categoría  Mobile, al pulsar sobre el enlace nos lleva a la página /categoria/Mobile
+
+#Libros por categoría: Esta página está en la ruta /categoria/<categoria>: Es muy similar a la página principal, 
+#pero sólo muestra la los libros de esa ccategoría. Además debe a aprecer un título con la categoría.

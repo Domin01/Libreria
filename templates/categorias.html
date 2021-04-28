@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+</head>
+<body>
+	<h1>LIBROS EN LA CATEGORIA: {{categoria}}</h1>
+
+		{% for libro in lista_libros -%}
+            {% if libro["categories"]==categoria %}
+                <a href="/libros/{{libro.isbn}}">{{libro.title}}</a>
+	        {% endif %}
+		{% endfor -%}
+</body>
+</html>
