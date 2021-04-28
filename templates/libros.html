@@ -2,24 +2,39 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <title>{{ contenido.title }}</title>
 </head>
 <body>
-	<h1>{{ title }}</h1>
+	<h1>{{ contenido.title }}</h1>
 	<img src="{{ contenido.thumbnailUrl }}"><br>
 
-	{% if contenido.status == "MEAP" %}
+	{% if contenido.status != "PUBLISH" %}
 		<p>ESTE LIBRO NO SE HA PUBLICADO</p>
 	{% else %}
-		<p>EL LIBRO ESTA PUBLICADO</p>>
+		<p>EL LIBRO ESTA PUBLICADO</p>
 	{% endif %}
-
-
 	<h2>Numero de paginas: {{ contenido.pageCount }}</h2>
-	<h2>Descripción</h2>
+
+	<h2>RESUMEN</h2>
 	<a>{{ contenido.shortDescription }}</a><br>
+	<h2>DESCRIPCION</h2>
+	<a>{{ contenido.longDescription }}</a><br>
 
 	<br>
-	<a href="/">Inicio</a>	
+	<h2>AUTORES</h2>
+	<ul>
+	{% for autores in contenido.authors -%}
+	<li><a>{{ autores }}</a></li>
+	{% endfor -%}
+	</ul>
+
+	<h2>CATEGORIAS</h2>
+	<ul>
+	{% for categorias in contenido.categories -%}
+	<li><a>{{ categorias }}</a></li>
+	{% endfor -%}
+	</ul>
+	
+	<a href="/">Inicio</a>
 </body>
 </html>
