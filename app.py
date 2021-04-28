@@ -12,13 +12,19 @@ def inicio():
 @app.route('/libros/<isbn>')
 def libros(isbn):
     for libro in datos:
-        if libro["isbn"]==isbn:
+        if libro.get("isbn")==isbn:
             return render_template("libros.html",contenido=libro)
     abort(404)
 
+
 @app.route('/categorias/<tipo>')
 def categoria(tipo):
-    return render_template("categorias.html",categoria=tipo,lista_libros=datos)
+    listacategorias=[]
+    for cate in datos:
+        for lista in cate.get("categories"):
+            if lista==tipo:
+                listacategorias.append(cate)
+    return render_template("categorias.html",categoria=tipo,lista_categorias=listacategorias,lista_libros=datos)
 
 
 

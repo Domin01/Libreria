@@ -6,11 +6,10 @@
 </head>
 <body>
 	<h1>LIBROS EN LA CATEGORIA: {{categoria}}</h1>
-
-		{% for libro in lista_libros -%}
-            {% if libro["categories"]==categoria %}
-                <a href="/libros/{{libro.isbn}}">{{libro.title}}</a>
-	        {% endif %}
+        <ul>
+		{% for libro in lista_categorias -%}
+            <li><a href="/libros/{{libro.isbn}}">{{libro.title}}</a></li>
 		{% endfor -%}
+        </ul>
 </body>
 </html>
