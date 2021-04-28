@@ -1,6 +1,4 @@
 from flask import Flask, render_template,abort,json
-import os
-app = Flask(__name__)	
 
 f = open('books.json',)
 
@@ -28,4 +26,4 @@ def categoria(tipo):
     return render_template("categorias.html",categoria=tipo,lista_categorias=listacategorias,lista_libros=datos)
 
 port=os.environ["PORT"]
-@app.run('0.0.0.0',int(port), debug=True)
+app.run('0.0.0.0',int(port), debug=True)
