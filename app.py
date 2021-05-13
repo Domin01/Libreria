@@ -26,5 +26,5 @@ def categoria(tipo):
                 listacategorias.append(cate)
     return render_template("categorias.html",categoria=tipo,lista_categorias=listacategorias,lista_libros=datos)
 
-portt=os.environnnnn["PORT"]
+port=os.environ["PORT"]
 app.run('0.0.0.0',int(port),debug=True)
