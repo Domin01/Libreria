@@ -17,7 +17,6 @@ def libros(isbn):
             return render_template("libros.html",contenido=libro)
     abort(404)
 
-
 @app.route('/categorias/<tipo>')
 def categoria(tipo):
     listacategorias=[]
