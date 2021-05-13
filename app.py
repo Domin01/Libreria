@@ -27,4 +27,4 @@ def categoria(tipo):
     return render_template("categorias.html",categoria=tipo,lista_categorias=listacategorias,lista_libros=datos)
 
 port=os.environ["PORT"]
-app.run('0.0.0.0',int(port),debug=False)
+app.run('0.0.0.0',int(port),debug=True)
