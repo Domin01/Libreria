@@ -6,7 +6,7 @@ f = open('books.json',)
 
 datos = json.load(f)
 
-app.route('/',methods=["GET","POST"])
+@app.route('/',methods=["GET","POST"])
 def inicio():
 	return render_template("inicio.html",lista_libros=datos)
 
